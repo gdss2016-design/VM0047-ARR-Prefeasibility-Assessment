@@ -1,19 +1,18 @@
 /***************************************************************
-FINAL SCRIPT 3:
+FINAL SCRIPT 5:
 ANNUAL SI TIME SERIES FOR MATCHED PROJECT-CONTROL PAIRS
 
 Input:
-- 02C_Matched_Project_Control_Balance_1000m_
+- 04_Matched_Project_Control_Balance_1000m_
 
 Output:
-- 03_Annual_SI_TimeSeries_MatchedPairs_1000m_
+- 05_Annual_SI_TimeSeries_MatchedPairs_1000m_
 
 Purpose:
 - Loads balanced matched project-control pairs.
 - Extracts annual Landsat SI proxies:
   NDVI, EVI, NDMI, NBR.
 - Calculates project-control annual differences.
-- Uses project and donor coordinates exported from Script 2B1.
 ****************************************************************/
 
 
@@ -24,10 +23,10 @@ Purpose:
 var ASSET_ROOT = 'projects/ee-gdss2016/assets/Pre-feasibility_assessment/';
 
 var MATCHED_INPUT_ASSET =
-  ASSET_ROOT + '02C_Matched_Project_Control_Balance_1000m_';
+  ASSET_ROOT + '04_Matched_Project_Control_Balance_1000m_';
 
 var SI_OUTPUT_ASSET =
-  ASSET_ROOT + '03_Annual_SI_TimeSeries_MatchedPairs_1000m_';
+  ASSET_ROOT + '05_Annual_SI_TimeSeries_MatchedPairs_1000m_';
 
 var START_YEAR = 2021;
 var END_YEAR = 2025;
@@ -56,7 +55,7 @@ var matchedPairs = matchedAll
   .sort('match_distance', true)
   .limit(MAX_MATCHED_PAIRS);
 
-print('Running Final Script 3: annual SI time series');
+print('Running Final Script 5: annual SI time series');
 print('Matched input asset', MATCHED_INPUT_ASSET);
 print('Output SI asset', SI_OUTPUT_ASSET);
 print('Matched pairs used', matchedPairs.size());
@@ -352,13 +351,13 @@ print(
 
 Export.table.toAsset({
   collection: allRows,
-  description: '03_Annual_SI_TimeSeries_MatchedPairs_1000m_',
+  description: '05_Annual_SI_TimeSeries_MatchedPairs_1000m_',
   assetId: SI_OUTPUT_ASSET
 });
 
 Export.table.toDrive({
   collection: allRows,
-  description: '03_Annual_SI_TimeSeries_MatchedPairs_1000m_'+ '_CSV',
-  fileNamePrefix: '03_Annual_SI_TimeSeries_MatchedPairs_1000m_',
+  description: '05_Annual_SI_TimeSeries_MatchedPairs_1000m_'+ '_CSV',
+  fileNamePrefix: '05_Annual_SI_TimeSeries_MatchedPairs_1000m_',
   fileFormat: 'CSV'
 });
