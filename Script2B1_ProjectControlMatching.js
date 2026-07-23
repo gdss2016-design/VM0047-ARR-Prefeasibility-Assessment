@@ -63,7 +63,7 @@ var COVARIATES = [
 var projectAll = ee.FeatureCollection(PROJECT_COVARIATE_ASSET);
 var donorAll = ee.FeatureCollection(DONOR_COVARIATE_ASSET);
 
-print('Running Script 2B1 memory-safe matching only');
+print('Running Script 3 memory-safe matching only');
 print('Project covariate asset', PROJECT_COVARIATE_ASSET);
 print('Donor covariate asset', DONOR_COVARIATE_ASSET);
 print('Output asset', OUTPUT_ASSET);
