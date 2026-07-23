@@ -1,15 +1,15 @@
 /***************************************************************
-FINAL SCRIPT 4:
+FINAL SCRIPT 6:
 FINAL PROJECT LOCATIONS + TRUE FINAL AREA
 
 Input:
-- 03_Annual_SI_TimeSeries_MatchedPairs_1000m_
+- 05_Annual_SI_TimeSeries_MatchedPairs_1000m_
 
 Output:
-- 04_Final_Project_Locations_TrueArea_1000m_
+- 06_Final_Project_Locations_TrueArea_1000m_
 
 Purpose:
-- Loads annual SI time-series rows from Script 3.
+- Loads annual SI time-series rows from Script 5.
 - Keeps one row per final project location.
 ****************************************************************/
 
@@ -21,10 +21,10 @@ Purpose:
 var ASSET_ROOT = 'projects/ee-gdss2016/assets/Pre-feasibility_assessment/';
 
 var INPUT_ASSET =
-  ASSET_ROOT + '03_Annual_SI_TimeSeries_MatchedPairs_1000m_';
+  ASSET_ROOT + '05_Annual_SI_TimeSeries_MatchedPairs_1000m_';
 
 var OUTPUT_ASSET =
-  ASSET_ROOT + '04_Final_Project_Locations_TrueArea_1000m_';
+  ASSET_ROOT + '06_Final_Project_Locations_TrueArea_1000m_';
 
 
 /***************************************************************
@@ -33,7 +33,7 @@ var OUTPUT_ASSET =
 
 var annualRows = ee.FeatureCollection(INPUT_ASSET);
 
-print('Running Final Script 4');
+print('Running Final Script 6');
 print('Input annual SI asset', INPUT_ASSET);
 print('Output final locations asset', OUTPUT_ASSET);
 
@@ -70,7 +70,7 @@ var rowsWithKeys = annualRows.map(addLocationKey);
 /***************************************************************
 3. KEEP ONE ROW PER PROJECT LOCATION
 
-Script 3 has repeated rows by year.
+Script 5 has repeated rows by year.
 This keeps one project location only once.
 ****************************************************************/
 
@@ -202,13 +202,13 @@ Map.addLayer(
 
 Export.table.toAsset({
   collection: finalLocations,
-  description: '04_Final_Project_Locations_TrueArea_1000m_',
+  description: '06_Final_Project_Locations_TrueArea_1000m_',
   assetId: OUTPUT_ASSET
 });
 
 Export.table.toDrive({
   collection: finalLocations,
-  description: '04_Final_Project_Locations_TrueArea_1000m_' + '_CSV',
-  fileNamePrefix: '04_Final_Project_Locations_TrueArea_1000m_',
+  description: '06_Final_Project_Locations_TrueArea_1000m_' + '_CSV',
+  fileNamePrefix: '06_Final_Project_Locations_TrueArea_1000m_',
   fileFormat: 'CSV'
 });
