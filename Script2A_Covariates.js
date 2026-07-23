@@ -1,5 +1,5 @@
 /***************************************************************
-FINAL SCRIPT 2A:
+FINAL SCRIPT 2:
 MEMORY-SAFE COVARIATE EXTRACTION FOR MATCHING
 
 Run twice:
@@ -10,8 +10,8 @@ Inputs:** 01_Project_EligibleScored_1000m
 - 01_Donor_EligibleScored_1000m
 
 Outputs:
-- 02A_Project_**variates_1000m
-- 02A_Donor**ovariates_1000m
+- 02_Project_**variates_1000m
+- 02_Donor**ovariates_1000m
 
 
 ****************************************************************/
@@ -61,19 +61,19 @@ var maxPoints;
 
 if (PROCESS_PROJECT) {
   inputAsset = PROJECT_INPUT_ASSET;
-  outputAsset = ASSET_ROOT + '02A_Project_Covariates_1000m_';
-  outputDescription = '02A_Project_Covariates_1000m_';
+  outputAsset = ASSET_ROOT + '02_Project_Covariates_1000m_';
+  outputDescription = '02_Project_Covariates_1000m_';
   processingType = 'project';
   maxPoints = MAX_PROJECT_POINTS;
 } else {
   inputAsset = DONOR_INPUT_ASSET;
-  outputAsset = ASSET_ROOT + '02A_Donor_Covariates_1000m_';
-  outputDescription = '02A_Donor_Covariates_1000m_';
+  outputAsset = ASSET_ROOT + '02_Donor_Covariates_1000m_';
+  outputDescription = '02_Donor_Covariates_1000m_';
   processingType = 'donor';
   maxPoints = MAX_DONOR_POINTS;
 }
 
-print('Running Script 2A for', processingType);
+print('Running Script 2 for', processingType);
 print('Input asset', inputAsset);
 print('Output asset', outputAsset);
 print('Max points used', maxPoints);
@@ -415,11 +415,11 @@ var readyRows = withFlags.filter(
   ee.Filter.gt('ready_for_matching', 0)
 );
 
-print('Script 2A output sample', withFlags.limit(10));
-print('Script 2A ready rows', readyRows.size());
+print('Script 2 output sample', withFlags.limit(10));
+print('Script 2 ready rows', readyRows.size());
 
 print(
-  'Script 2A ready eligible area ha',
+  'Script 2 ready eligible area ha',
   readyRows.aggregate_sum('eligible_area_ha')
 );
 
