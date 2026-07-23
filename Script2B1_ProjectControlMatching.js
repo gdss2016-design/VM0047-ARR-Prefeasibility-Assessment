@@ -1,16 +1,16 @@
 /***************************************************************
-FINAL SCRIPT 2B1:
+FINAL SCRIPT 3:
 MEMORY-SAFE MATCHING ONLY
 
 Inputs:
-- 02A_Project_Covariates_1000m
-- 02A_Donor_Covariates_1000m
+- 02_Project_Covariates_1000m
+- 02_Donor_Covariates_1000m
 
 Output:
-- 02B1_Matched_Project_Control_Pairs_1000m
+- 03_Matched_Project_Control_Pairs_1000m
 
 Purpose:
-- Loads Script 2A covariate exports.
+- Loads Script 2 covariate exports.
 - Filters ready_for_matching = 1.
 - Uses a smaller project and donor subset.
 - Matches each project cell to one best donor cell.
@@ -24,13 +24,13 @@ Purpose:
 var ASSET_ROOT = 'projects/ee-gdss2016/assets/Pre-feasibility_assessment/';
 
 var PROJECT_COVARIATE_ASSET =
-  ASSET_ROOT + '02A_Project_Covariates_1000m_';
+  ASSET_ROOT + '02_Project_Covariates_1000m_';
 
 var DONOR_COVARIATE_ASSET =
-  ASSET_ROOT + '02A_Donor_Covariates_1000m_';
+  ASSET_ROOT + '02_Donor_Covariates_1000m_';
 
 var OUTPUT_ASSET =
-  ASSET_ROOT + '02B1_Matched_Project_Control_Pairs_1000m_';
+  ASSET_ROOT + '03_Matched_Project_Control_Pairs_1000m_';
 
 var GRID_SIZE_M = 1000;
 
@@ -301,13 +301,13 @@ print('Matched pairs sample', matchedPairs.limit(5));
 
 Export.table.toAsset({
   collection: matchedPairs,
-  description: '02B1_Matched_Project_Control_Pairs_1000m_',
+  description: '03_Matched_Project_Control_Pairs_1000m_',
   assetId: OUTPUT_ASSET
 });
 
 Export.table.toDrive({
   collection: matchedPairs,
-  description: '02B1_Matched_Project_Control_Pairs_1000m_' + '_CSV',
-  fileNamePrefix: '02B1_Matched_Project_Control_Pairs_1000m_',
+  description: '03_Matched_Project_Control_Pairs_1000m_' + '_CSV',
+  fileNamePrefix: '03_Matched_Project_Control_Pairs_1000m_',
   fileFormat: 'CSV'
 });
