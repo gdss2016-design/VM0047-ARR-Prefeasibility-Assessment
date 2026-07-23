@@ -9,10 +9,10 @@ The workflow is designed to support early-stage project screening and prioritisa
 The workflow consists of six stages:
 
 - Script 1 – Eligibility Screening and True Area Calculation
-- Script 2A – Environmental Covariate Extraction
-- Script 2B1 – Project-Control Matching
-- Script 2C – Balance Diagnostics
-- Script 3 – Annual Vegetation Condition Time Series
-- Script 4 – Final Candidate Location Summary
+- Script 2 – Environmental Covariate Extraction
+- Script 3 – Project-Control Matching
+- Script 4 – Balance Diagnostics
+- Script 5 – Annual Vegetation Condition Time Series
+- Script 6 – Final Candidate Location Summary
 
 This repository supports prefeasibility assessment only and does not calculate carbon stocks, carbon removals, carbon credits, or verified carbon units (VCUs). Additional field validation and methodology-specific carbon accounting are required before project implementation.
