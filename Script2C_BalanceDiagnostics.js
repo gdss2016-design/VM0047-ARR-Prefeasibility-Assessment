@@ -1,15 +1,15 @@
 /***************************************************************
-FINAL SCRIPT 2C:
+FINAL SCRIPT 4:
 BALANCE CHECK ONLY FOR MATCHED PROJECT-CONTROL PAIRS
 
 Input:
-- 02B1_Matched_Project_Control_Pairs_1000m
+- 03_Matched_Project_Control_Pairs_1000m_
 
 Output:
-- 02C_Matched_Project_Control_Balance_1000m
+- 04_Matched_Project_Control_Balance_1000m_
 
 Purpose:
-- Loads matched pairs from Script 2B1.
+- Loads matched pairs from Script 3.
 - Calculates sample-level balance diagnostics.
 - Adds standardised difference of means for covariates.
 - Adds pair-level absolute differences.
@@ -24,10 +24,10 @@ Purpose:
 var ASSET_ROOT = 'projects/ee-gdss2016/assets/Pre-feasibility_assessment/';
 
 var MATCHED_INPUT_ASSET =
-  ASSET_ROOT + '02B1_Matched_Project_Control_Pairs_1000m_';
+  ASSET_ROOT + '03_Matched_Project_Control_Pairs_1000m_';
 
 var BALANCE_OUTPUT_ASSET =
-  ASSET_ROOT + '02C_Matched_Project_Control_Balance_1000m_';
+  ASSET_ROOT + '04_Matched_Project_Control_Balance_1000m_';
 
 // Balance diagnostic threshold.
 // Lower standardised difference is better.
@@ -41,7 +41,7 @@ var STANDARDISED_DIFF_THRESHOLD = 0.25;
 
 var matched = ee.FeatureCollection(MATCHED_INPUT_ASSET);
 
-print('Running Final Script 2C balance check only');
+print('Running Final Script 4 balance check only');
 print('Matched input asset', MATCHED_INPUT_ASSET);
 print('Balance output asset', BALANCE_OUTPUT_ASSET);
 
@@ -364,13 +364,13 @@ print(
 
 Export.table.toAsset({
   collection: balancedPairs,
-  description: '02C_Matched_Project_Control_Balance_1000m_',
+  description: '04_Matched_Project_Control_Balance_1000m_',
   assetId: BALANCE_OUTPUT_ASSET
 });
 
 Export.table.toDrive({
   collection: balancedPairs,
-  description: '02C_Matched_Project_Control_Balance_1000m_' + '_CSV',
-  fileNamePrefix: '02C_Matched_Project_Control_Balance_1000m_',
+  description: '04_Matched_Project_Control_Balance_1000m_' + '_CSV',
+  fileNamePrefix: '04_Matched_Project_Control_Balance_1000m_',
   fileFormat: 'CSV'
 });
